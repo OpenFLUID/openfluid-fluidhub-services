@@ -1,0 +1,26 @@
+{
+  "global" : {
+    "rootpath" : "/var/tmp/openfluid-fluidhub"
+  },
+  "api" : {
+    "port" : 3447
+  },
+  "wareshub" : {
+    "enabled" : true,
+    "gitserver" : {
+      "port" : 3448,
+      "rootpath" : "/var/tmp/openfluid-fluidhub/wareshub/git"
+    }
+  },
+  "simhub" : {
+    "enabled" : false,
+    "gitserver" : {
+      "port" : 3449,
+      "rootpath" : "/var/tmp/openfluid-fluidhub/simhub/git"
+    }
+  },
+  "webui" : {
+    "enabled" : true,
+    "port" : 3450
+  }
+}

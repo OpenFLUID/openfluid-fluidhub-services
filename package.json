@@ -1,0 +1,15 @@
+{
+  "name": "fluidhub-services",
+  "version": "0.0.1",
+  "description": "",
+  "author": "Jean-Christophe Fabre <jean-christophe.fabre@supagro.inra.fr>",
+  "license": "AGPL",
+  "dependencies": {
+    "express": "^4.12.4",
+    "express-git": "~0.7",
+    "ejs": "~2.3",
+    "object-merge": "~2.5",
+    "commander": "~2.9",
+    "pm2": "~0.15"
+  }
+}
