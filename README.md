@@ -1,34 +1,38 @@
 # Overview
 
-Engine for OpenFLUID FluidHub services, based on node.js
+Architecture for OpenFLUID FluidHub services, based on Docker containers managed by docker-compose
 
+# Usage
 
-# Architecture
-
-## Main dependencies
-
-See file [package.json](package.json) for dependencies.
-
-
-## Source tree
-
-* `fluidhub-cmd.js` : command line tool for fluidhub services management
-* `lib/defaultconfig.json` : default configuration settings
-* `lib/api-service.js` : main file of the api service
-* `lib/webui-service.js` : main file of the web UI service
-* `lib/wareshub-gitserver.js` : main file of the git server for wares
-
-
-## Configuration file
-
-By default, the `defaultconfig.json` file is loaded from the `lib` directory. It is overriden by a `config.json` file if present in the instance data directory
-
-See file [lib/defaultconfig.json](lib/defaultconfig.json) for content.
-
-
-## Command-line tool
-
-See help for more details :
+Use `fluidhub-ctl` script to control the services. It relies on docker-compose to manage the services containers:
 ```
-node fluidhub-cmd --help
+fluidhub-ctl <docker-compose commands and options>
+```
+
+The root path to data must be set in the `FLUIDHUB_DATAPATH` environment variable before using `fluidhub-ctl`
+
+```
+export FLUIDHUB_DATAPATH=/path/to/data
+```
+
+To start the FluidHub services:
+```
+fluidhub-ctl up
+```
+
+To shut down the FluidHub services:
+```
+fluidhub-ctl down
+```
+
+To put the FluidHub services in development mode, you have to set the `FLUIDHUB_ENV` environment variable value to `dev`. In this case, the `FLUIDHUB_DATAPATH` variable is automatically set to a `_dev/data` directory located at the root of the source tree. You have to create this directory and subdirectories, and put here the data for development mode.
+
+To start the FluidHub services in development mode:
+```
+FLUIDHUB_ENV=dev fluidhub-ctl up
+```
+
+To shut down the FluidHub services when in development mode:
+```
+FLUIDHUB_ENV=dev fluidhub-ctl down
 ```

@@ -1,0 +1,20 @@
+version: "2"
+
+services:
+  api:
+    build:
+      context: ./services/api
+    image: fluidhub/api
+    volumes:
+      - ./services/api:/app/services/api:ro
+      - ./lib:/app/lib:ro
+      - ${FLUIDHUB_DATAPATH}/conf:/data/conf:ro
+      - ${FLUIDHUB_DATAPATH}/wareshub:/data/wareshub:ro
+    ports:
+      - "3447:3447"
+
+
+#  mongodb:
+#    image: mongo:3
+#    volumes:
+#      - "/var/local/openfluid-fluidhub/db:/data/db"

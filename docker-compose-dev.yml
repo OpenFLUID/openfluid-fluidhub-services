@@ -1,0 +1,11 @@
+version: "2"
+
+services:
+  api:
+    command: nodemon services/api/main.js
+
+#  mongodb:
+#    volumes:
+#      - "./_dev/data/db:/data/db"
+#    ports:
+#      - "27017:27017"

@@ -26,12 +26,11 @@
 
 */
 
-var rootDir = process.argv[2]
 
-var configMan = require('./config-manager');
-var constants = require('./constants');
+var configMan = require('config-manager');
+var constants = require('constants');
 
-var config = configMan.get(rootDir)
+var config = configMan.get();
 
 var express = require('express');
 var app = express();
@@ -40,8 +39,12 @@ var app = express();
 // ============================================================================
 
 
+let signature = configMan.getFluidHubSignature(config);
+
+
 app.get('/', function(req, res) {
-  res.status(501).send('not implemented');
+
+  res.json(signature);
 });
 
 

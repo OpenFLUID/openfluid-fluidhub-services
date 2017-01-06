@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+COMPOSE_FILES_OPTS="-f docker-compose.yml"
+COMPOSE_PROJECT_NAME="fluidhub"
+
+if [ "$FLUIDHUB_ENV" = "dev" ]
+then
+  COMPOSE_FILES_OPTS="$COMPOSE_FILES_OPTS -f docker-compose-dev.yml"
+  COMPOSE_PROJECT_NAME="fluidhubdev"
+  export FLUIDHUB_DATAPATH="./_dev/data"
+fi
+
+if [ "$FLUIDHUB_DATAPATH" = "" ]
+then
+  echo "FLUIDHUB_DATAPATH env var is not set!"
+  exit 1
+fi
+
+docker-compose --project-name $COMPOSE_PROJECT_NAME $COMPOSE_FILES_OPTS $@
