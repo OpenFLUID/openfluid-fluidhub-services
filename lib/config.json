@@ -1,8 +1,10 @@
 {
   "global" : {
     "name" : "none",
-    "status" : "production"
-  },  
+    "status" : "production",
+    "datapath" : "/data",
+    "logdir" : "log"
+  },
   "api" : {
     "version" : "0.7-20151124",
     "port" : 3447
@@ -11,7 +13,7 @@
     "enabled" : true,
     "gitserver" : {
       "port" : 3448,
-      "rootpath" : "/data/wareshub/git"
+      "reposdir" : "wareshub/repositories"
     }
   }
 }

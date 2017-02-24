@@ -4,6 +4,10 @@ services:
   api:
     command: nodemon services/api/main.js
 
+  wareshub-git:
+    command: nodemon services/wareshub-git/main.js
+
+
 #  mongodb:
 #    volumes:
 #      - "./_dev/data/db:/data/db"

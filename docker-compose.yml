@@ -10,8 +10,20 @@ services:
       - ./lib:/app/lib:ro
       - ${FLUIDHUB_DATAPATH}/conf:/data/conf:ro
       - ${FLUIDHUB_DATAPATH}/wareshub:/data/wareshub:ro
+      - ${FLUIDHUB_DATAPATH}/log:/data/log:rw
     ports:
       - "3447:3447"
+  wareshub-git:
+    build:
+      context: ./services/wareshub-git
+    image: fluidhub/wareshub-git
+    volumes:
+      - ./services/wareshub-git:/app/services/wareshub-git:ro
+      - ./lib:/app/lib:ro
+      - ${FLUIDHUB_DATAPATH}/wareshub:/data/wareshub:rw
+      - ${FLUIDHUB_DATAPATH}/log:/data/log:rw
+    ports:
+      - "3448:3448"
 
 
 #  mongodb:
