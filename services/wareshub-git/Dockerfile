@@ -3,7 +3,7 @@ FROM node:6
 
 RUN \
   apt-get update && \
-  apt-get install -y git python && \
+  apt-get install -y git python libldap2-dev && \
   apt-get autoremove -y
 
 
